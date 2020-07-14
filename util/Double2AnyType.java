@@ -8,20 +8,20 @@ public class Double2AnyType {
 		System.out.println(dest);
 	}
 	
-	// ¹ö¸²
+	// ë²„ë¦¼
 	public static void double2Int() {
 		double src = 10.9;
 		int dest = (int)src;
 		System.out.println(dest);
 	}
 	
-	// nÀÚ¸® ¹İ¿Ã¸²
+	// nìë¦¬ ë°˜ì˜¬ë¦¼
 	public static void doubleRoundUp() {
 		double src = 3.14159265358979;
 		double dest = Math.round(src);
 		System.out.println(dest);
 		
-		// ¼Ò¼ö ³İÂ°ÀÚ¸® ¹İ¿Ã¸² - ¹ö¸²ÇÏ·Á¸é °öÇØ¼­ int·Î Ä³½ºÆÃÇÏ°í ³ª´²
+		// ì†Œìˆ˜ ë„·ì§¸ìë¦¬ ë°˜ì˜¬ë¦¼ - ë²„ë¦¼í•˜ë ¤ë©´ ê³±í•´ì„œ intë¡œ ìºìŠ¤íŒ…í•˜ê³  ë‚˜ëˆ 
 		dest = Math.round(src*1000)/1000.0;
 		System.out.println(dest);
 	}
