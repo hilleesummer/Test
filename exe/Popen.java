@@ -1,11 +1,11 @@
-package popen;
+package exe;
 
 import java.io.*;
 public class Popen {
 	
-	// ¼³      ¸í : popen.
-	// ÆÄ¶ó¹ÌÅÍ : none
-	// ÁÖÀÇ»çÇ× : write ½Ã °³Çà¹®ÀÚ¸¦ ¹Ýµå½Ã »ðÀÔÇØ¾ßÇÔ
+	// ì„¤      ëª… : popen.
+	// íŒŒë¼ë¯¸í„° : none
+	// ì£¼ì˜ì‚¬í•­ : write ì‹œ ê°œí–‰ë¬¸ìžë¥¼ ë°˜ë“œì‹œ ì‚½ìž…í•´ì•¼í•¨
 	public static void popen() {
 //		String [] cmd = new String[] { "cmd", "/C", "dir", ">", "redirect.txt" };
 		String [] cmd = new String[] { "cmd" };
