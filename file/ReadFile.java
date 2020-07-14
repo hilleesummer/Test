@@ -4,8 +4,8 @@ import java.io.*;
 
 public class ReadFile {
 	
-	// Ό³      Έν : ΖΔΐΟΏ΅Ό­ ·ΉΔΪµε read.
-	// ΖΔ¶σΉΜΕΝ : µπ·ΊΕδΈ®, ΖΔΐΟΈν, ·ΉΔΪµε
+	// μ„¤      λª… : νμΌμ—μ„ λ μ½”λ“ read.
+	// νλΌλ―Έν„° : λ””λ ‰ν† λ¦¬, νμΌλª…, λ μ½”λ“
 	public static void readFile(String pDir, String pFileNm) {
 		if( pDir == null ) pDir = "";
 
