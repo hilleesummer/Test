@@ -4,8 +4,8 @@ import java.io.*;
 
 public class AppendFile {
 
-	// Ό³      Έν : ΖΔΐΟΏ΅ ·ΉΔΪµε append.
-	// ΖΔ¶σΉΜΕΝ : µπ·ΊΕδΈ®, ΖΔΐΟΈν, ·ΉΔΪµε
+	// μ„¤      λª… : νμΌμ— λ μ½”λ“ append.
+	// νλΌλ―Έν„° : λ””λ ‰ν† λ¦¬, νμΌλª…, λ μ½”λ“
 	public static void appendFile(String pDir, String pFileNm, String pRecord) {
 		if( pDir == null ) pDir = "";
 
