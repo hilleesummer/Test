@@ -12,7 +12,7 @@ public class MyOperation {
 		map = new HashMap<String, Integer>();
 	}
 	
-	// ·¹ÄÚµå ÆÄ¼­
+	// ë ˆì½”ë“œ íŒŒì„œ
 	private String[] parseRecord(String record) {
 		String[] f = record.split(delimiter);
 		for( int i = 0; i < f.length; i++) {
@@ -22,14 +22,14 @@ public class MyOperation {
 		return f;
 	}
 	
-	// list¿¡ ÆÄ½ÌµÈ ·¹ÄÚµå Ãß°¡
+	// listì— íŒŒì‹±ëœ ë ˆì½”ë“œ ì¶”ê°€
 	public void addToList(String record) {
 		String[] f = parseRecord(record);
 		MyData data = new MyData(f[0], f[1], f[2]);
 		list.add(data);
 	}
 	
-	// Ã¹¹øÂ° ÇÊµå·Î Á¤·Ä
+	// ì²«ë²ˆì§¸ í•„ë“œë¡œ ì •ë ¬
 	public void sortList() {
 		Collections.sort(list);
 		for( MyData datas : list) {
@@ -37,7 +37,7 @@ public class MyOperation {
 		}
 	}
 	
-	// µÎ¹øÂ° ÇÊµå·Î Á¤·Ä ( comparator¸¦ ÀÌ¿ëÇØ¼­ )
+	// ë‘ë²ˆì§¸ í•„ë“œë¡œ ì •ë ¬ ( comparatorë¥¼ ì´ìš©í•´ì„œ )
 	public void sortListByComparator() {
 		Collections.sort(list, new Comparator<MyData>() {
 
@@ -50,7 +50,7 @@ public class MyOperation {
 		});
 	}
 	
-	// listÀÇ µ¥ÀÌÅÍ¸¦ °¡Áö°í hashmap ±¸¼º
+	// listì˜ ë°ì´í„°ë¥¼ ê°€ì§€ê³  hashmap êµ¬ì„±
 	public void updateHashMap() {
 		for( MyData datas : list) {
 			String key = datas.f2;
