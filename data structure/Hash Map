@@ -1,1 +1,33 @@
+import java.util.*;
 
+// 중복을 허락하지 않고 입력 순서 유지
+public class MyHashMap {
+
+	public static void main(String[] args) {
+		Map<String, Integer> map = new HashMap();
+		
+		map.put("vishal", 10);
+		map.put("sachin",  30);
+		map.put("vaibhav",  20);
+		
+		System.out.println( map );
+		
+		if( map.containsKey("vishal") ){
+			Integer value = map.get("vishal");
+			System.out.println( value );
+		}
+		
+		for( Map.Entry<String, Integer> e : map.entrySet() ) {
+			String key = e.getKey();
+			Integer value = e.getValue() + 1;
+			map.put(key, value);
+		}
+		
+        Iterator<String> keys = map.keySet().iterator();
+        while( keys.hasNext() ){
+            String key = keys.next();
+            Integer value = map.get(key);
+            System.out.println("키 : "+key+", 값 : "+value);
+        }
+	}
+}
