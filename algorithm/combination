@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class Combination {
+
+    public void doCombination(int[] combArr, int n, int r, int index, int target, int[] arr){       
+        if(r == 0){	// 원소를 다 뽑아 씀
+            for(int i=0; i<index; i++)System.out.print(arr[combArr[i]] + " ");
+            System.out.println();
+        }else if(target == n){ 
+            return;
+        }else{
+            combArr[index] = target;
+            // 인덱스의 데이터를 선택한 경우
+            doCombination(combArr, n, r-1, index+1, target+1, arr);
+            // 인덱스의 데이터를 선택하지 않은 경우
+            doCombination(combArr, n, r, index, target+1, arr); 
+        }
+    }
+    
+    public static void main(String[] ar){
+        Combination ex = new Combination();
+        int[] arr = { 1, 2, 3 };
+        int n = arr.length;
+        int r = 2;
+        int[] combArr = new int[n];	// 선택한 인덱스를 보관
+ 
+        ex.doCombination(combArr, n, r, 0, 0, arr);
+    }
+}
