@@ -23,11 +23,11 @@ public class MyHashMap {
 			map.put(key, value);
 		}
 		
-        Iterator<String> keys = map.keySet().iterator();
-        while( keys.hasNext() ){
-            String key = keys.next();
-            Integer value = map.get(key);
-            System.out.println("키 : "+key+", 값 : "+value);
-        }
+		Iterator<String> keys = map.keySet().iterator();
+		while( keys.hasNext() ){
+		    String key = keys.next();
+		    Integer value = map.get(key);
+		    System.out.println("키 : "+key+", 값 : "+value);
+		}
 	}
 }
