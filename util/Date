@@ -1,0 +1,82 @@
+import java.text.*;
+import java.util.*;
+
+public class MyDate {
+	
+	public static void string2Date() {
+		DateFormat format = new SimpleDateFormat("yyyy/mm/dd");
+		Date date = null;
+		try {
+			date = format.parse("2020/01/01");
+		} catch(ParseException e) {
+			e.printStackTrace();
+		}
+		System.out.println("<string to date> : " + date);
+	}
+	
+	public static void date2String() {
+		Date date = new Date();
+		DateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		try {
+			date = format.parse("2020/01/01");
+			String str = format.format(date);
+			System.out.println("<date to String> : " +str);
+		} catch(ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void curDTime() {
+		Date date = new Date();
+		DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String str = format.format(date);
+		System.out.println("<현재시간> : " + str);
+	}
+	
+	public static void diffDate() {
+		DateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		Date date1 = null;
+		Date date2 = null;
+		
+		try {
+			date1 = format.parse("2020/08/01");
+			date2 = format.parse("2020/08/03");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		long milliSeconds = date2.getTime() - date1.getTime();
+		long diffDate = milliSeconds / ( 24*60*60*1000 );
+		System.out.println("<날짜비교> : " + diffDate + "일");
+	}
+	
+	public static void sleepSeconds( int seconds ) {
+		try {
+			System.out.print("<sleep> "+ seconds + "초  ");
+			Thread.sleep(seconds * 1000);
+			System.out.println(" <done>");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void getMicroSeconds() {
+		long start = System.nanoTime();
+		sleepSeconds(1);
+		long end = System.nanoTime();
+		long microseconds = (end - start) / 1000;
+		System.out.println("<Micro seconds> : " + microseconds + "usec");
+	}
+
+	public static void main(String[] args) {
+		string2Date();
+		date2String();
+		curDTime();
+		diffDate();
+		sleepSeconds(1);
+		getMicroSeconds();
+	}
+
+}
