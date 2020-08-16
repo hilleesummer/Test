@@ -1,0 +1,38 @@
+public class MyRound {
+	
+	// 반올림
+	public static void round() {
+		double d = Math.round(Math.PI);
+		System.out.println(d);
+		d = Math.round( Math.PI * 100 ) / 100.0;
+		System.out.println(d);
+		d = Math.round( Math.PI * 1000 ) / 1000.0;
+		System.out.println(d);
+	}
+	
+	// 올림
+	public static void roundUp() {
+		double d = Math.ceil(Math.PI);
+		System.out.println(d);
+		d = Math.ceil( Math.PI * 100 ) / 100.0;
+		System.out.println(d);
+		d = Math.ceil( Math.PI * 1000 ) / 1000.0;
+		System.out.println(d);
+	}
+	
+	// 버림
+	public static void roundDown() {
+		double d = Math.floor(Math.PI);
+		System.out.println(d);
+		d = Math.floor( Math.PI * 100 ) / 100.0;
+		System.out.println(d);
+		d = Math.floor( Math.PI * 1000 ) / 1000.0;
+		System.out.println(d);
+	}
+
+	public static void main(String[] args) {
+		round();		// 반올림
+		roundUp();		// 올림
+		roundDown();	// 버림
+	}
+}
