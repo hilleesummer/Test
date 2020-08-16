@@ -1,0 +1,45 @@
+import java.text.DecimalFormat;
+
+public class FormattedPrint {
+	
+	// 자동 반올림
+	public static void stringFormat() {
+		System.out.println("<String Format>");
+		String str = String.format("%.3f", Math.PI);
+		System.out.println("[소수점] : " + str );
+	}
+	
+	// 자동 반올림
+	public static void decimalFormat() {
+		System.out.println("\n<Decimal Format>");
+		DecimalFormat fmt = new DecimalFormat("0.###");
+		Double pi = Math.PI;
+		String str = fmt.format(pi);
+		
+		System.out.println("[소수점] : " + str );
+		
+		fmt = new DecimalFormat("000.#");
+		str = fmt.format(pi);
+		System.out.println("[0으로 마스킹] : " + str );
+		
+		fmt = new DecimalFormat("#.###");
+		str = fmt.format(pi);
+		System.out.println("[0출력 안함] : " + str );
+		
+		// 값에 관계없이 + 출력
+		fmt = new DecimalFormat("+#.###");
+		str = fmt.format(pi);
+		System.out.println("[기  호] : " + str );
+		
+		// %: 100을 곱하고, %기호 출력
+		fmt = new DecimalFormat("#.###%");
+		str = fmt.format(pi);
+		System.out.println("[백분율] : " + str );
+	}
+
+	public static void main(String[] args) {
+		stringFormat();
+		decimalFormat();
+	}
+
+}
