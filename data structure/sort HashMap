@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class SortedHashMap {
+	
+	public static LinkedHashMap<String, String> sortMapByKey(Map<String, String> map){
+		List<Map.Entry<String, String>> entries = new LinkedList<>(map.entrySet());
+		
+		Collections.sort(entries, (o1, o2) -> o1.getKey().compareTo(o2.getKey()));
+		LinkedHashMap<String, String> result = new LinkedHashMap<>();
+		for(Map.Entry<String, String> entry : entries) {
+			result.put(entry.getKey(), entry.getValue());
+		}
+		return result;
+	}
+
+	public static void main(String[] args) {
+		Map<String, String> map = new LinkedHashMap<>();
+		map.put("Nepal", "Kathmandu");
+		map.put("United States", "Washington");
+		map.put("India", "New Delhi");
+		
+        Iterator<String> keys = map.keySet().iterator();
+        while( keys.hasNext() ){
+            String key = keys.next();
+            String value = map.get(key);
+            System.out.println("키 : "+key+", 값 : "+value);
+        }
+        
+		Map<String, String> result = sortMapByKey(map);
+		
+		System.out.println("<after sorted>");
+		for( Map.Entry<String, String> entry : result.entrySet()) {
+            String key = entry.getKey();
+            String value =entry.getValue();
+            System.out.println("키 : "+key+", 값 : "+value);
+		}
+	}
+
+}
