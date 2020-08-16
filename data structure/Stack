@@ -1,0 +1,45 @@
+import java.util.*;
+
+public class MyStack {
+	
+	// push
+	public static void push(Stack<String> stack) {
+		stack.push("A");
+		stack.push("C");
+		stack.push("B");
+		
+		System.out.println("<push> : " + stack );
+	}
+	
+	// pop
+	public static void pop(Stack<String> stack) {
+		String data = stack.pop();
+	
+		System.out.println("<pop : " + data + "> : " + stack );
+	}
+	
+	// pop 없이 데이터만 조회
+	public static void peek(Stack<String> stack) {
+		String data = stack.peek();
+	
+		System.out.println("<peek : " + data + "> : " + stack );
+	}
+	
+	// 
+	public static void stack2List(Stack<String> stack) {
+		List<String> list = new ArrayList<>();
+		list.addAll(stack);
+		for( String data : list) {
+			System.out.print( data + " ");
+		}
+	}
+
+	public static void main(String[] args) {
+		Stack<String> stack = new Stack<>();
+		push( stack );
+		pop( stack );
+		peek( stack );
+		// stack을 List로 변환
+		stack2List( stack );
+	}
+}
