@@ -19,20 +19,20 @@ public class SortedHashMap {
 		map.put("United States", "Washington");
 		map.put("India", "New Delhi");
 		
-        Iterator<String> keys = map.keySet().iterator();
-        while( keys.hasNext() ){
-            String key = keys.next();
-            String value = map.get(key);
-            System.out.println("키 : "+key+", 값 : "+value);
-        }
+		Iterator<String> keys = map.keySet().iterator();
+		while( keys.hasNext() ){
+		    String key = keys.next();
+		    String value = map.get(key);
+		    System.out.println("키 : "+key+", 값 : "+value);
+		}
         
 		Map<String, String> result = sortMapByKey(map);
 		
 		System.out.println("<after sorted>");
 		for( Map.Entry<String, String> entry : result.entrySet()) {
-            String key = entry.getKey();
-            String value =entry.getValue();
-            System.out.println("키 : "+key+", 값 : "+value);
+		    String key = entry.getKey();
+		    String value =entry.getValue();
+		    System.out.println("키 : "+key+", 값 : "+value);
 		}
 	}
 
