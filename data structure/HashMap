@@ -1,33 +1,107 @@
 import java.util.*;
+import java.util.Map.Entry;
 
 // 중복을 허락하지 않고 입력 순서 유지
 public class MyHashMap {
-
-	public static void main(String[] args) {
-		Map<String, Integer> map = new HashMap();
-		
+	
+	public static void insert(Map<String, Integer> map) {
 		map.put("vishal", 10);
 		map.put("sachin",  30);
 		map.put("vaibhav",  20);
-		
-		System.out.println( map );
-		
-		if( map.containsKey("vishal") ){
-			Integer value = map.get("vishal");
-			System.out.println( value );
+	}
+	
+	public static void update(Map<String, Integer> map) {
+		map.put("vishal", 15);
+	}
+	
+	public static void search(Map<String, Integer> map, String key) {
+		if( map.containsKey(key) ){
+			Integer value = map.get(key);
+            		System.out.println("<수정> 키 : "+key+", 값 : "+value);
 		}
-		
-		for( Map.Entry<String, Integer> e : map.entrySet() ) {
-			String key = e.getKey();
-			Integer value = e.getValue() + 1;
-			map.put(key, value);
+	}
+	
+	// HashMap을 List로 변환
+	public static List<Map.Entry<String,Integer>> hashMap2List(Map<String, Integer> map) {
+		List<Map.Entry<String,Integer>> list = new ArrayList<Map.Entry<String,Integer>>(map.entrySet());
+        	System.out.println("\n<HashMap을 List로 변환>");
+		for( Entry<String, Integer> e : list ) {
+			System.out.println(e);
 		}
-		
+		return list;
+	}
+	
+	// 정렬 : with Key
+	public static List<Map.Entry<String,Integer>> sortWithKey(List<Map.Entry<String, Integer>> list) {
+        System.out.println("\n<List를 key로 sorting>");
+		Collections.sort( list, new Comparator<Map.Entry<String, Integer>>(){
+			@Override
+			public int compare(Entry<String, Integer> o1, Entry<String, Integer> o2) {
+				// TODO Auto-generated method stub
+				return o1.getKey().compareTo(o2.getKey());
+			}
+		});
+		for( Entry<String, Integer> e : list ) {
+			System.out.println(e);
+		}
+		return list;
+	}
+	
+	// 정렬 : with value
+	public static List<Map.Entry<String,Integer>> sortWithValue(List<Map.Entry<String, Integer>> list) {
+        System.out.println("\n<List를 value로 sorting>");
+		Collections.sort( list, new Comparator<Map.Entry<String, Integer>>(){
+			@Override
+			public int compare(Entry<String, Integer> o1, Entry<String, Integer> o2) {
+				// TODO Auto-generated method stub
+				return o1.getValue().compareTo(o2.getValue());
+			}
+		});
+		for( Entry<String, Integer> e : list ) {
+			System.out.println(e);
+		}
+		return list;
+	}
+	
+	// 출력 : itorator를 사용함
+	public static void printUsingIterator(Map <String, Integer> map) {
+		System.out.println("\n<출력 Using Iterator>");
 		Iterator<String> keys = map.keySet().iterator();
 		while( keys.hasNext() ){
 		    String key = keys.next();
 		    Integer value = map.get(key);
 		    System.out.println("키 : "+key+", 값 : "+value);
 		}
+	}
+	
+	// 출력 : keyset을 사용함
+	public static void printUsingEntrySet(Map <String, Integer> map) {
+       		System.out.println("\n<출력 Using EntrySet>");
+		for( Map.Entry<String, Integer> entry : map.entrySet()) {
+		    String key = entry.getKey();
+		    Integer value =entry.getValue();
+		    System.out.println("키 : "+key+", 값 : "+value);
+		}
+	}
+
+	public static void main(String[] args) {
+		Map<String, Integer> map = new HashMap<>();
+		
+		// 삽입
+		insert( map );
+		// 수정
+		update( map );
+		// 검색
+		search( map, "vishal");
+		// 출력
+		printUsingIterator( map );
+		// HashMap을 List로 변환
+		List list = hashMap2List(map);
+		// List를 key 값으로 sort
+		list = sortWithKey(list);
+		// List를 value 값으로 sort
+		list = sortWithValue(list);
+		// 출력 
+		printUsingEntrySet( map );
 	}
 }
