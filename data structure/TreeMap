@@ -1,0 +1,63 @@
+import java.util.*;
+import java.util.Map.Entry;
+
+public class MyTreeMap {
+	
+	public static List treeMap2List(TreeMap <Integer, String>map) {
+		List<Map.Entry<Integer,String>> list = new ArrayList<Map.Entry<Integer,String>>(map.entrySet());
+        System.out.println("\n<List로 변환>");
+		for( Entry<Integer, String> e : list ) {
+			System.out.println(e);
+		}
+		
+        System.out.println("\n<List를 value로 sorting>");
+		Collections.sort( list, new Comparator<Map.Entry<Integer, String>>(){
+			@Override
+			public int compare(Entry<Integer, String> o1, Entry<Integer, String> o2) {
+				// TODO Auto-generated method stub
+				return o1.getValue().compareTo(o2.getValue());
+			}
+		});
+		for( Entry<Integer, String> e : list ) {
+			System.out.println(e);
+		}
+		return list;
+	}
+	
+	public static void insert2TreeMap(TreeMap <Integer, String>map) {
+		map.put(15, "4");
+		map.put(20, "Greeks");
+		map.put(25, "Welcomes");
+		map.put(30, "You");
+		map.put(10, "Greeks");
+	}
+	
+	public static void printUsingIterator(TreeMap <Integer, String> map) {
+		System.out.println("\n<출력 Using Iterator>");
+        Iterator<Integer> keys = map.keySet().iterator();
+        while( keys.hasNext() ){
+            Integer key = keys.next();
+            String value = map.get(key);
+            System.out.println("키 : "+key+", 값 : "+value);
+        }
+	}
+	
+	public static void printUsingEntrySet(TreeMap <Integer, String> map) {
+        System.out.println("\n<출력 Using EntrySet>");
+		for( Map.Entry<Integer, String> entry : map.entrySet()) {
+            Integer key = entry.getKey();
+            String value =entry.getValue();
+            System.out.println("키 : "+key+", 값 : "+value);
+		}
+	}
+	
+	// TreeMap은 자동정렬됨
+	public static void main(String[] args) {
+		TreeMap<Integer, String> map = new TreeMap<Integer,String>();
+		
+		insert2TreeMap( map );
+		printUsingIterator ( map );
+		printUsingEntrySet( map );
+        treeMap2List(map);
+	}
+}
