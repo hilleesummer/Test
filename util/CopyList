@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class CopyObject {
+	
+	public static <T> List<T> copyList2List(List<T> src, List<T> dest){
+		if( dest == null ) dest = new ArrayList<T>();
+		dest.addAll( src );
+		return dest;
+	}
+
+	public static void main(String[] args) {
+		List<String> src = new ArrayList<String>();
+		List<String> dest = null;
+		
+		src.add("apple");
+		src.add("banana");
+		
+		dest = copyList2List( src, dest );
+		System.out.println( dest );
+	}
+
