@@ -1,0 +1,41 @@
+import java.util.*;
+
+// 자동 정렬이 필요한 Set에 사용
+public class MyTreeSet {
+	// 삽입
+	public static void insert(TreeSet<String> set) {
+		set.add("C");
+		set.add("B");
+		System.out.println("<삽입>" + set);
+	}
+	
+	// 내림차순 Sort
+	public static void sortDescending(TreeSet<String> set) {
+		TreeSet<String> rset = (TreeSet<String>) set.descendingSet();
+		Iterator<String> it = rset.iterator();
+		System.out.println("<내림차순 sort>" + rset);
+	}
+	
+	// 출력
+	public static void printTreeSet(TreeSet<String> set) {
+		System.out.print("<출력> : ");
+		Iterator<String> it = set.iterator();
+		while( it.hasNext() ){
+			String data = (String) it.next();
+			System.out.print(data + " ");
+		}
+		System.out.println("");
+	}
+	
+	public static void main(String[] args) {
+		TreeSet<String> set = new TreeSet<String>();
+		// 삽입
+		insert( set );
+		// 내림차순 sort
+		sortDescending( set );
+		// 출력
+		printTreeSet( set );
+		
+	}
+
+}
