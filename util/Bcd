@@ -1,0 +1,68 @@
+public class Bcd {
+
+	public static void bcd2String() {
+		byte[] bcd = { (byte)0xaa, 0x11, (byte) 0xFF};
+		StringBuilder s = new StringBuilder(bcd.length * 2);
+		
+		for( int i = 0; i< bcd.length; i++ ) {
+			char c;
+			byte b = (byte)(0xF & bcd[i]);
+			if( b < 10 ) c = (char)(b + '0');
+			else c = (char)(b - 10 + 'A');
+			s.append(c);
+			b = (byte)(0xF & bcd[i] >> 4);
+			if( b < 10 ) c = (char)(b + '0');
+			else c = (char)(b - 10 + 'A');
+			s.append(c);
+		}
+		
+		System.out.println( s.toString() );
+	}
+	
+	public static void string2Bcd() {
+		String value = "AA11FF";
+		value = value.toUpperCase();
+		byte[] bcd = new byte[(value.length()+1)/2];
+		int charPos = 0;
+		int bcdPos = 0;
+		
+		if( value.length()%2 == 1) {
+			char c = value.charAt(0);
+			if( c >= 'A' ) c = (char)(c -'A' + 10);
+			bcd[0] = (byte)(value.charAt(0) - '0');
+			charPos = 1;
+			bcdPos = 1;
+		}
+		
+		while( charPos < value.length()) {
+			byte upper = (byte)value.charAt(charPos);
+			byte lower = (byte)value.charAt(charPos+1);
+			if( upper >= 'A' ) {
+				upper = (byte)( (upper - 'A') + 10 << 4 );
+			}else {
+				upper = (byte)( (upper - '0') << 4 );
+			}
+			
+			if( lower >= 'A' ) {
+				lower = (byte)( (lower - 'A') + 10 );
+			}else {
+				lower = (byte)( (lower - '0') );
+			}
+			
+			bcd[ bcdPos ] = (byte)(upper | lower);
+			charPos += 2;
+			bcdPos ++;
+		}
+		
+		for( int i = 0; i < bcd.length; i++ ) {
+			System.out.print( String.format("0x%02X",  bcd[i]) + "," );
+		}
+		System.out.println("");
+		
+	}
+	public static void main(String[] args) {
+		bcd2String();
+		string2Bcd();
+	}
+
+}
