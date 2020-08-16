@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class MyDequeue {
+	// 삽입
+	public static void insert(Deque<String> queue) {
+		queue.add("Rajeev");	// rear
+		queue.add("Chris");		// rear
+		queue.add("Jhone");		// rear
+		queue.addLast("Kim");	// rear
+		queue.offer("Yang");	// rear
+		queue.offerFirst("Koo");// front
+		queue.push("Hong");		// front
+		queue.addFirst("Lee");	// front
+		System.out.println("<삽입>" + queue);
+	}
+	
+	// 삭제 : FIFO로 처음 입력값 삭제. 데이터가 없으면 Exception
+	public static void remove(Deque<String> queue) {
+		String name = queue.remove();	// front
+		System.out.println("<삭제 : " + name + "> " + queue);
+		
+		name = queue.removeFirst();		// front
+		System.out.println("<삭제 : " + name + "> " + queue);
+		
+		name = queue.removeLast();		// rear
+		System.out.println("<삭제 : " + name + "> " + queue);
+	}
+	
+	public static void removeNull(Deque<String> queue) {
+		String name = queue.poll();		// front
+		System.out.println("<삭제 : " + name + "> " + queue);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Deque<String> queue = new LinkedList<String>();
+		// 삽입
+		insert( queue );
+		// 삭제
+		remove( queue );
+		// 삭제
+		removeNull( queue );
+		// 삽입
+		insert( queue );
+	}
+
+}
