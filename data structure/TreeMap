@@ -1,15 +1,35 @@
 import java.util.*;
 import java.util.Map.Entry;
 
+// TreeMap은 입력 시  자동으로 sort되는 성질이 있음
 public class MyTreeMap {
 	
-	public static List treeMap2List(TreeMap <Integer, String>map) {
+	// 입력
+	public static void insert(TreeMap <Integer, String>map) {
+		map.put(15, "4");
+		map.put(20, "Greeks");
+		map.put(25, "Welcomes");
+		map.put(30, "You");
+		map.put(10, "Greeks");
+	}
+	
+	// 수정
+	public static void update(TreeMap <Integer, String>map) {
+		map.replace(15, "15");
+	}
+	
+	// TreeMap을 List로 변환
+	public static List<Map.Entry<Integer,String>> treeMap2List(TreeMap<Integer, String> map) {
 		List<Map.Entry<Integer,String>> list = new ArrayList<Map.Entry<Integer,String>>(map.entrySet());
-        System.out.println("\n<List로 변환>");
+        System.out.println("\n<TreeMap을 List로 변환>");
 		for( Entry<Integer, String> e : list ) {
 			System.out.println(e);
 		}
-		
+		return list;
+	}
+	
+	// 정렬 : with value
+	public static List<Map.Entry<Integer,String>> sortWithValue(List<Map.Entry<Integer, String>> list) {
         System.out.println("\n<List를 value로 sorting>");
 		Collections.sort( list, new Comparator<Map.Entry<Integer, String>>(){
 			@Override
@@ -24,14 +44,7 @@ public class MyTreeMap {
 		return list;
 	}
 	
-	public static void insert2TreeMap(TreeMap <Integer, String>map) {
-		map.put(15, "4");
-		map.put(20, "Greeks");
-		map.put(25, "Welcomes");
-		map.put(30, "You");
-		map.put(10, "Greeks");
-	}
-	
+	// 출력 : itorator를 사용함
 	public static void printUsingIterator(TreeMap <Integer, String> map) {
 		System.out.println("\n<출력 Using Iterator>");
         Iterator<Integer> keys = map.keySet().iterator();
@@ -42,6 +55,7 @@ public class MyTreeMap {
         }
 	}
 	
+	// 출력 : keyset을 사용함
 	public static void printUsingEntrySet(TreeMap <Integer, String> map) {
         System.out.println("\n<출력 Using EntrySet>");
 		for( Map.Entry<Integer, String> entry : map.entrySet()) {
@@ -55,9 +69,17 @@ public class MyTreeMap {
 	public static void main(String[] args) {
 		TreeMap<Integer, String> map = new TreeMap<Integer,String>();
 		
-		insert2TreeMap( map );
+		// 입력
+		insert( map );
+		// 출력 1
 		printUsingIterator ( map );
+		// 수정
+		update( map );
+		// 출력 2
 		printUsingEntrySet( map );
-        treeMap2List(map);
+		// TreeMap을 List로 변환
+		List list = treeMap2List(map);
+		// List를 sort
+		list = sortWithValue(list);
 	}
 }
