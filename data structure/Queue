@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class MyQueue {
+	// 삽입
+	public static void insert(Queue<String> queue) {
+		queue.add("Rajeev");
+		queue.add("Chris");
+		queue.add("Jhone");
+		System.out.println("<삽입>" + queue);
+	}
+	
+	// 삭제 : FIFO로 처음 입력값 삭제. 데이터가 없으면 Exception
+	public static void remove(Queue<String> queue) {
+		String name = queue.remove();
+		System.out.println("<삭제 : " + name + "> " + queue);
+	}
+	
+	public static void removeNull(Queue<String> queue) {
+		String name = queue.poll();
+		System.out.println("<삭제 : " + name + "> " + queue);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Queue<String> queue = new LinkedList<>();
+		// 삽입
+		insert( queue );
+		// 삭제
+		remove( queue );
+		// 삭제
+		removeNull( queue );
+		// 삽입
+		insert( queue );
+	}
+}
