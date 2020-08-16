@@ -21,7 +21,7 @@ public class MyTreeMap {
 	// TreeMap을 List로 변환
 	public static List<Map.Entry<Integer,String>> treeMap2List(TreeMap<Integer, String> map) {
 		List<Map.Entry<Integer,String>> list = new ArrayList<Map.Entry<Integer,String>>(map.entrySet());
-        System.out.println("\n<TreeMap을 List로 변환>");
+        	System.out.println("\n<TreeMap을 List로 변환>");
 		for( Entry<Integer, String> e : list ) {
 			System.out.println(e);
 		}
@@ -30,7 +30,7 @@ public class MyTreeMap {
 	
 	// 정렬 : with value
 	public static List<Map.Entry<Integer,String>> sortWithValue(List<Map.Entry<Integer, String>> list) {
-        System.out.println("\n<List를 value로 sorting>");
+        	System.out.println("\n<List를 value로 sorting>");
 		Collections.sort( list, new Comparator<Map.Entry<Integer, String>>(){
 			@Override
 			public int compare(Entry<Integer, String> o1, Entry<Integer, String> o2) {
@@ -47,21 +47,21 @@ public class MyTreeMap {
 	// 출력 : itorator를 사용함
 	public static void printUsingIterator(TreeMap <Integer, String> map) {
 		System.out.println("\n<출력 Using Iterator>");
-        Iterator<Integer> keys = map.keySet().iterator();
-        while( keys.hasNext() ){
-            Integer key = keys.next();
-            String value = map.get(key);
-            System.out.println("키 : "+key+", 값 : "+value);
-        }
+		Iterator<Integer> keys = map.keySet().iterator();
+		while( keys.hasNext() ){
+		    Integer key = keys.next();
+		    String value = map.get(key);
+		    System.out.println("키 : "+key+", 값 : "+value);
+		}
 	}
 	
 	// 출력 : keyset을 사용함
 	public static void printUsingEntrySet(TreeMap <Integer, String> map) {
-        System.out.println("\n<출력 Using EntrySet>");
+		System.out.println("\n<출력 Using EntrySet>");
 		for( Map.Entry<Integer, String> entry : map.entrySet()) {
-            Integer key = entry.getKey();
-            String value =entry.getValue();
-            System.out.println("키 : "+key+", 값 : "+value);
+		    Integer key = entry.getKey();
+		    String value =entry.getValue();
+		    System.out.println("키 : "+key+", 값 : "+value);
 		}
 	}
 	
