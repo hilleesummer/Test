@@ -1,0 +1,46 @@
+import java.util.*;
+
+// 중복을 허락하지 않고 Sorting되지 않는 Set
+public class MyHashSet {
+
+	// 삽입
+	public static void insert(HashSet<String> set) {
+		set.add("A");
+		set.add("C");
+		set.add("B");
+		System.out.println("<삽입>" + set);
+	}
+	
+	//  Sort
+	public static void sort(HashSet<String> set) {
+		TreeSet<String> treeSet = new TreeSet();
+		treeSet.addAll( set );
+		System.out.println("<sort >" + treeSet);
+	}
+	
+	public static void sortDescending(HashSet<String> set) {
+		TreeSet<String> treeSet = new TreeSet();
+		treeSet.addAll( set );
+		TreeSet<String> rset = (TreeSet<String>) treeSet.descendingSet();
+		System.out.println("<sort Descending>" + rset);
+	}
+	
+	// 출력
+	public static void printTreeSet(HashSet<String> set) {
+		System.out.print("<출력> : ");
+		Iterator<String> it = set.iterator();
+		while( it.hasNext() ){
+			String data = (String) it.next();
+			System.out.print(data + " ");
+		}
+		System.out.println("");
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HashSet<String> set = new HashSet<>();
+		insert( set );
+		sort( set );
+		sortDescending( set );
+	}
+}
