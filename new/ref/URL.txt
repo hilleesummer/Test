@@ -1,2 +1,5 @@
 https://blog.naver.com/ambidext/222434508009
 https://wiki.eclipse.org/Jetty/Tutorial/Embedding_Jetty
+https://blog.naver.com/PostView.naver?blogId=ambidext&logNo=222434508009&categoryNo=60&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
+https://ju-hy.tistory.com/67
+https://ash84.io/2012/02/18/java-gson--eb-9d-bc-ec-9d-b4-eb-b8-8c-eb-9f-ac-eb-a6-ac-eb-a1-9c-json--ec-9d-b4-ec-9a-a9-ed-95-98-ea-b8-b0/
