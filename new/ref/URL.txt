@@ -1,3 +1,8 @@
+https://www.jsonschema2pojo.org/
+
+https://github.com/skwhdeo/test
+https://github.com/MiniBaek/test
+
 https://blog.naver.com/ambidext/222434508009
 https://wiki.eclipse.org/Jetty/Tutorial/Embedding_Jetty
 https://blog.naver.com/PostView.naver?blogId=ambidext&logNo=222434508009&categoryNo=60&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
