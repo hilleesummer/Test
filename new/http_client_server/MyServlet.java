@@ -1,11 +1,14 @@
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.io.*;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -22,6 +25,7 @@ import org.eclipse.jetty.http.HttpMethod;
 import org.eclipse.jetty.http.HttpStatus;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
 public class MyServlet extends HttpServlet {
 	private List<DeviceInfo> device_info_list;
@@ -104,10 +108,46 @@ public class MyServlet extends HttpServlet {
 		body = stringBuilder.toString();
 		return body;
 	}
+	
+	// json file을 업데이트
+	public void updateJsonFile(String key, String value) {
+		String str = null;
+		try {
+			Gson gson = new Gson();
+			BufferedReader reader = Files.newBufferedReader(Paths.get("VARIABLE.JSON"));
+			HashMap<String, String> map = new HashMap<String, String>();
+			map = gson.fromJson(reader, HashMap.class);
+			reader.close();
+			map.replace(key, value);
+			FileWriter writer = new FileWriter("VARIABLE.JSON");
+			gson.toJson(map, writer);
+			writer.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-		res.setStatus(200);
+		res.setStatus(HttpStatus.OK_200);
 		res.getWriter().write("Welcome to my server.");
+		String reqUri = req.getRequestURI();
+		String[] pathParam = reqUri.split("/");
+		
+		HttpClient httpClient = new HttpClient();
+		String uri = "http://www.naver.com:8080/";
+		try {
+			ContentResponse contentResponse = httpClient.newRequest(uri).method(HttpMethod.GET).send();
+			Type type = new TypeToken<Map<String, String>>(){}.getType();
+			Map<String, String> map = new Gson().fromJson(contentResponse.getContentAsString(), type);
+			Iterator<String> iter = map.keySet().iterator();
+			while( iter.hasNext()) {
+				String key = iter.next();
+				String value = (String)map.get(key);
+				updateJsonFile(key, value);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, IOException {
